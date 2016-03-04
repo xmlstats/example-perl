@@ -16,7 +16,7 @@ my $json = JSON->new->allow_nonref;
 main();
 
 sub main {
-    # See https://erikberg.com/api/endpoints#requrl
+    # See https://erikberg.com/api/endpoints#requrl and build_url function
     my $host   = "erikberg.com";
     my $sport  = "nba";
     my $method = "teams";
@@ -81,8 +81,6 @@ sub http_get {
     }
 }
 
-# See https://erikberg.com/api/methods Request URL Convention for
-# an explanation
 sub build_url {
     my ($host, $sport, $method, $id, $format, %parameters) = @_;
     my ($path) = join("/", grep(defined, ($sport, $method, $id)));
